@@ -11,8 +11,8 @@ import com.mysql.jdbc.Statement;
  * Project Name: prjSQL
  * File Name:PrjSQL
  * Author: Mat Duck (Mat.Duck@gmail.com)
- * Date created: 11/14/2014	
- * Modified: 
+ * Date created: 11/14/2015	
+ * Modified: 11/15/2015
  * 
  * 
  * 
