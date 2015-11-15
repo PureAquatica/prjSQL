@@ -32,7 +32,7 @@ public class PrjSQL {
 	// To be used to create a new table.
 	private final static String NEW_TABLE = "createdERPTable";
 	
-	// Setting up variables to store login infomation to access our mysql server.
+	// Setting up variables to store login information to access our mysql server.
 	private final String userName = "root";
 	private final String password = "mysql";
 	private final String serverName = "localhost";
@@ -69,7 +69,7 @@ public class PrjSQL {
 		project.updateData(userInputUpdate, 1, EXISTING_TABLE);
 		
 		// Deleting that same record.
-		//project.deleteRecord(1, EXISTING_TABLE);
+		project.deleteRecord(1, EXISTING_TABLE);
 		
 		// Creating a new table.
 		project.createTable(NEW_TABLE);
@@ -100,8 +100,8 @@ public class PrjSQL {
 		
 		// DEBUG I used this line may times while working on the project
 		// This kept me from having to switch over the myphpadmin every time I wanted to scratch.
-		//project.dropTable(EXISTING_TABLE);
-		//project.dropTable(NEW_TABLE);
+		project.dropTable(EXISTING_TABLE);
+		project.dropTable(NEW_TABLE);
 		
 		
 	} // end of main.
@@ -168,7 +168,7 @@ public class PrjSQL {
 			// If createTable = true,
 			if(createTable)
 			{
-				// Creating a variable to place our hard coded (other than the table name) SQL statment.
+				// Creating a variable to place our hard coded (other than the table name) SQL statement.
 				String createTableSQL = "CREATE TABLE " + tableName + " ( " +
 						"id INTEGER NOT NULL AUTO_INCREMENT, " +
 						"description varchar(150) NOT NULL, " +
@@ -234,8 +234,6 @@ public class PrjSQL {
 		// Select the data
 		try
 		{
-			// Create a sql variable containing a command that will pull all the values from the database.
-			//sql = "SELECT * FROM createdERPTable";
 			
 			// Create a statement in our connection.
 			stmt = conn.createStatement();
@@ -394,7 +392,7 @@ public class PrjSQL {
 		{
 			// Fill the sql variable with a SQL statement populated from the passed in array. 
 			// Notice the single quotes. We need to surround the value that we are applying to the attribute in single quotes.
-			// Double quotes around the SQL statement ("), signgle quotes around the value we are applying. 
+			// Double quotes around the SQL statement ("), single quotes around the value we are applying. 
 			sql = "UPDATE " + thisTable
 					+ " SET description='" + userInput[0] + "', "
 					+ "partNumber='" 	+ userInput[1] + "', "
@@ -544,7 +542,7 @@ public class PrjSQL {
 
 	/**
 	 * executeUpdate() - runs a SQL command that does not return information.
-	 * This could be a: CREATE, INSERT, UPDATE, DELETE or DROP statment. 
+	 * This could be a: CREATE, INSERT, UPDATE, DELETE or DROP statement. 
 	 * 
 	 * 
 	 * @throws SQLException 
